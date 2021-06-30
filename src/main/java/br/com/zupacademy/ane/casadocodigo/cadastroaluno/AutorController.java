@@ -2,13 +2,11 @@ package br.com.zupacademy.ane.casadocodigo.cadastroaluno;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import java.util.Optional;
 
 
 @RestController
@@ -18,16 +16,19 @@ public class AutorController {
     @Autowired
     private AutorRepository alunoRepository;
 
+
     @PostMapping
     @Transactional
-    public ResponseEntity<AutorDto> cadastrarUsuario(@RequestBody @Valid AutorForm form){
-        Autor aluno = form.converter(alunoRepository);
-        alunoRepository.save(aluno);
+    public ResponseEntity<String> cadastrarUsuario(@RequestBody @Valid AutorForm form){
 
+        Optional<Autor> email = alunoRepository.findAutorByEmail(form.getEmail());
+        Autor autor = form.converter(alunoRepository);
+        if(email.isPresent()) {
+           return ResponseEntity.status(500).body("Email inválido!");
+        }
+        alunoRepository.save(autor);
         return ResponseEntity.ok().build();
 
     }
-
-
 }
 

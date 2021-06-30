@@ -35,7 +35,6 @@ public class AutorDto {
     public String getDescricao() {
         return descricao;
     }
-
 }
 
 

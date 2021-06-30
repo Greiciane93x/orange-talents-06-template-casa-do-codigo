@@ -17,13 +17,20 @@ public class Autor {
     @Column(nullable = false, length = 400)
     private String descricao;
     @Column(nullable = false)
-    private LocalDateTime instanteCriacaoAutor;
+    private LocalDateTime data;
 
-    public Autor(String nome, String email, String descricao, LocalDateTime instanteCriacaoAutor) {
+
+    public Autor(String nome, String email, String descricao,LocalDateTime data) {
+
         this.nome = nome;
         this.email = email;
         this.descricao = descricao;
-        this.instanteCriacaoAutor = instanteCriacaoAutor;
+        this.data = data;
+    }
+
+    @Deprecated
+    public Autor() {
+
     }
 
     public String getNome() {
@@ -38,4 +45,5 @@ public class Autor {
         return descricao;
     }
 
+    public LocalDateTime getData() { return data; }
 }
