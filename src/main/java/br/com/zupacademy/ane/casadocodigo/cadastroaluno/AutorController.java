@@ -10,12 +10,11 @@ import java.util.Optional;
 
 
 @RestController
-@RequestMapping("/autores")
+@RequestMapping("/autor")
 public class AutorController {
 
     @Autowired
     private AutorRepository alunoRepository;
-
 
     @PostMapping
     @Transactional
@@ -24,7 +23,7 @@ public class AutorController {
         Optional<Autor> email = alunoRepository.findAutorByEmail(form.getEmail());
         Autor autor = form.converter(alunoRepository);
         if(email.isPresent()) {
-           return ResponseEntity.status(500).body("Email inválido!");
+           return ResponseEntity.status(400).body("Email inválido!");
         }
         alunoRepository.save(autor);
         return ResponseEntity.ok().build();

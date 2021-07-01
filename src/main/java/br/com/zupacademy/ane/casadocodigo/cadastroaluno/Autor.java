@@ -19,18 +19,15 @@ public class Autor {
     @Column(nullable = false)
     private LocalDateTime data;
 
+    @Deprecated
+    public Autor() {
 
+    }
     public Autor(String nome, String email, String descricao,LocalDateTime data) {
-
         this.nome = nome;
         this.email = email;
         this.descricao = descricao;
         this.data = data;
-    }
-
-    @Deprecated
-    public Autor() {
-
     }
 
     public String getNome() {

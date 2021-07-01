@@ -19,7 +19,6 @@ public class AutorForm {
         @NotNull
         @NotBlank(message="Email é obrigatório!")
         @NotEmpty @Email
-
         private String email;
         @NotEmpty @NotNull
         @NotBlank @Length(max = 400, message = "Não pode exceder de 400 caracteres")
@@ -28,7 +27,7 @@ public class AutorForm {
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
         private LocalDateTime data = LocalDateTime.now();
 
-    public String getNome() {
+        public String getNome() {
             return nome;
         }
 
@@ -40,9 +39,7 @@ public class AutorForm {
             return descricao;
         }
 
-        public LocalDateTime getL() {
-            return data;
-        }
+        public LocalDateTime getData() { return data; }
 
         public Autor converter(AutorRepository alunoRepository) {
                     return new Autor(nome, email, descricao,data );
