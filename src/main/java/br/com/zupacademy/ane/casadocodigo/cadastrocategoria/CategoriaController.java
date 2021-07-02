@@ -22,12 +22,8 @@ public class CategoriaController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<String> cadastrarCategoria(@RequestBody @Valid CategoriaForm form){
-        Optional<Categoria> nome = categoriaRepository.findCategoriaByName(form.getNome());
+    public ResponseEntity<CategoriaDto> cadastrarCategoria(@RequestBody @Valid CategoriaForm form){
         Categoria categoria = form.converter(categoriaRepository);
-        if(nome.isPresent()) {
-            return ResponseEntity.status(400).body("Nome inválido");
-        }
         categoriaRepository.save(categoria);
         return ResponseEntity.ok().build();
     }

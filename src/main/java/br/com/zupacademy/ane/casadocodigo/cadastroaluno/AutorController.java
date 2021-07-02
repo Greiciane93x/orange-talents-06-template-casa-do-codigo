@@ -18,13 +18,9 @@ public class AutorController {
 
     @PostMapping
     @Transactional
-    public ResponseEntity<String> cadastrarUsuario(@RequestBody @Valid AutorForm form){
-
-        Optional<Autor> email = alunoRepository.findAutorByEmail(form.getEmail());
+    public ResponseEntity<AutorDto> cadastrarUsuario(@RequestBody @Valid AutorForm form){
         Autor autor = form.converter(alunoRepository);
-        if(email.isPresent()) {
-           return ResponseEntity.status(400).body("Email inválido!");
-        }
+
         alunoRepository.save(autor);
         return ResponseEntity.ok().build();
 

@@ -1,8 +1,8 @@
 package br.com.zupacademy.ane.casadocodigo.cadastroaluno;
+import br.com.zupacademy.ane.casadocodigo.validacao.ValorUnico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -19,6 +19,7 @@ public class AutorForm {
         @NotNull
         @NotBlank(message="Email é obrigatório!")
         @NotEmpty @Email
+        @ValorUnico(domainClass = Autor.class, fieldName = "email")
         private String email;
         @NotEmpty @NotNull
         @NotBlank @Length(max = 400, message = "Não pode exceder de 400 caracteres")
