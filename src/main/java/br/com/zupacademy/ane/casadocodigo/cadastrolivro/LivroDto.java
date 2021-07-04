@@ -3,7 +3,9 @@ package br.com.zupacademy.ane.casadocodigo.cadastrolivro;
 import br.com.zupacademy.ane.casadocodigo.validacao.ValorUnico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.data.domain.Page;
 
+import javax.persistence.EntityManager;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
@@ -34,6 +36,21 @@ public class LivroDto {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "pt-BR", timezone = "Brazil/East")
     @NotNull
     private LocalDate dataPublicacao;
+
+
+    public LivroDto(Livro livro) {
+        this.titulo = livro.getTitulo();
+        this.resumo = livro.getResumo();
+        this.sumario = livro.getSumario();
+        this.preco = livro.getPreco();
+        this.numeroPaginas = livro.getNumeroPaginas();
+        this.isbn = livro.getIsbn();
+        this.dataPublicacao = livro.getDataPublicacao();
+    }
+
+    public static Page<LivroDto> converter(Page<Livro> livros) {
+        return livros.map(LivroDto::new);
+    }
 
 
     public String getTitulo() {

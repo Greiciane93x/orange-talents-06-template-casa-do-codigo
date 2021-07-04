@@ -40,6 +40,10 @@ public class Livro {
     @ManyToOne
     @JoinColumn(name= "categoria_id")
     private Categoria categoria;
+
+    public Livro() {
+    }
+
     @ManyToOne
     @JoinColumn(name="autor_id")
     private Autor autor;
@@ -54,6 +58,42 @@ public class Livro {
         this.dataPublicacao = dataPublicacao;
         this.autor = autor;
         this.categoria = categoria;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public String getResumo() {
+        return resumo;
+    }
+
+    public String getSumario() {
+        return sumario;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public Long getNumeroPaginas() {
+        return numeroPaginas;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public LocalDate getDataPublicacao() {
+        return dataPublicacao;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public Autor getAutor() {
+        return autor;
     }
 
     @Override
