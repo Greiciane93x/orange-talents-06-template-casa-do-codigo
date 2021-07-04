@@ -17,6 +17,6 @@ public class CategoriaForm {
     }
 
     public Categoria converter(CategoriaRepository categoriaRepository) {
-        return new Categoria(id,nome);
+        return new Categoria(nome);
     }
 }

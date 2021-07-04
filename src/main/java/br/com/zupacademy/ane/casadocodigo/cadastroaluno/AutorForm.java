@@ -1,4 +1,5 @@
 package br.com.zupacademy.ane.casadocodigo.cadastroaluno;
+import br.com.zupacademy.ane.casadocodigo.cadastrolivro.Livro;
 import br.com.zupacademy.ane.casadocodigo.validacao.ValorUnico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
@@ -28,6 +29,8 @@ public class AutorForm {
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
         private LocalDateTime data = LocalDateTime.now();
 
+        private Livro livro;
+
         public String getNome() {
             return nome;
         }
@@ -42,8 +45,12 @@ public class AutorForm {
 
         public LocalDateTime getData() { return data; }
 
+        public Livro getLivro() {
+                return livro;
+        }
+
         public Autor converter(AutorRepository alunoRepository) {
-                    return new Autor(nome, email, descricao,data );
+                return new Autor(nome, email, descricao,data, livro);
         }
 
 

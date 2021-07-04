@@ -1,5 +1,7 @@
 package br.com.zupacademy.ane.casadocodigo.cadastrocategoria;
 
+import br.com.zupacademy.ane.casadocodigo.cadastrolivro.Livro;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,13 +13,15 @@ public class Categoria {
     @Column(nullable = false, unique = true)
     private String nome;
 
+    @ManyToOne
+    private Livro livro;
+
     @Deprecated
     public Categoria() {
     }
 
-    public Categoria(Integer id, String nome) {
+    public Categoria(String nome) {
         this.nome = nome;
-        this.id = id;
     }
     public Integer getId() {
         return id;
