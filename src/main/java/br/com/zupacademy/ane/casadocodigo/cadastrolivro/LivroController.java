@@ -46,21 +46,4 @@ public class LivroController {
         }
 
     }
-
-//        if(nomeCurso == null){
-//        Page<Topico> topicos = topicoRepository.findAll(paginacao);
-//        return TopicoDto.converter(topicos);
-//    }else{
-//        Page<Topico> topicos = topicoRepository.findByCursoNome(nomeCurso, paginacao);
-//        return TopicoDto.converter(topicos);
-//    }
-//}
-
-
-
-
-
-
-
-
 }
