@@ -35,15 +35,8 @@ public class LivroController {
 
     }
 
-
-    @GetMapping(path = "/{id}")
-    public String buscaLivroPorID(@PathVariable Integer id) {
-        Optional<Livro> livro = livroRepository.findById(id);
-        return livro.toString();
-    }
-
     @GetMapping
-    public Page<LivroDto> lista(@RequestParam(required = false)Long id, @PageableDefault(sort ="id", direction = Sort.Direction.DESC, page = 0, size = 10) Pageable paginacao){
+    public Page<LivroDto> lista(@RequestParam(required = true)Long id, @PageableDefault(sort ="id", direction = Sort.Direction.DESC, page = 0, size = 10) Pageable paginacao){
         if(id == null){
             Page<Livro> livros = livroRepository.findAll(paginacao);
             return LivroDto.converter(livros);

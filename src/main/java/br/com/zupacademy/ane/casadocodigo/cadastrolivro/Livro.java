@@ -13,7 +13,7 @@ import java.time.LocalDate;
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     @Column(nullable = false)
     @NotBlank
     private String titulo;
