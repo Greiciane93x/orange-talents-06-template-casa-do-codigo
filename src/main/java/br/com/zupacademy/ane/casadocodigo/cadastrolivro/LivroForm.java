@@ -1,13 +1,10 @@
 package br.com.zupacademy.ane.casadocodigo.cadastrolivro;
 
-import br.com.zupacademy.ane.casadocodigo.cadastroaluno.Autor;
-import br.com.zupacademy.ane.casadocodigo.cadastroaluno.AutorRepository;
+import br.com.zupacademy.ane.casadocodigo.cadastroautor.Autor;
 import br.com.zupacademy.ane.casadocodigo.cadastrocategoria.Categoria;
-import br.com.zupacademy.ane.casadocodigo.cadastrocategoria.CategoriaRepository;
 import br.com.zupacademy.ane.casadocodigo.validacao.ValorUnico;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;
 import javax.validation.constraints.Future;

@@ -1,4 +1,4 @@
-package br.com.zupacademy.ane.casadocodigo.cadastroaluno;
+package br.com.zupacademy.ane.casadocodigo.cadastroautor;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 import javax.validation.Valid;
-import java.util.Optional;
 
 
 @RestController

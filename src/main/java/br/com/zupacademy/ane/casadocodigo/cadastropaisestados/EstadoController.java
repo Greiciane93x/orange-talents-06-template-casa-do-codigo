@@ -18,8 +18,8 @@ public class EstadoController {
     @PersistenceContext
     EntityManager manager;
 
-    @PostMapping
     @Transactional
+    @PostMapping
     public String cadastrarEstado(@RequestBody @Valid EstadoForm EstadoForm){
 
         Estado estado = EstadoForm.converter(manager);

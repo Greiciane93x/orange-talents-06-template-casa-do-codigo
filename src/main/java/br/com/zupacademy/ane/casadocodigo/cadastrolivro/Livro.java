@@ -1,6 +1,6 @@
 package br.com.zupacademy.ane.casadocodigo.cadastrolivro;
 
-import br.com.zupacademy.ane.casadocodigo.cadastroaluno.Autor;
+import br.com.zupacademy.ane.casadocodigo.cadastroautor.Autor;
 import br.com.zupacademy.ane.casadocodigo.cadastrocategoria.Categoria;
 import com.fasterxml.jackson.annotation.JsonFormat;
 

@@ -1,12 +1,10 @@
-package br.com.zupacademy.ane.casadocodigo.cadastroaluno;
+package br.com.zupacademy.ane.casadocodigo.cadastroautor;
 
-import br.com.zupacademy.ane.casadocodigo.cadastrocategoria.Categoria;
 import br.com.zupacademy.ane.casadocodigo.cadastrolivro.Livro;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Entity
